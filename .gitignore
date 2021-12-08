@@ -1,4 +1,5 @@
 .idea/
 _build/
 *.iml
-./aoc2021
+aoc2021
+!lib/aoc2021
