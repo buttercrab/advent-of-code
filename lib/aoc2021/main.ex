@@ -1,15 +1,21 @@
 defmodule Aoc2021.Main do
-  @moduledoc false
+  @moduledoc """
+  Compile this with:
+
+  ```bash
+  mix escript.build
+  ```
+
+  run with:
+
+  ```bash
+  ./aoc2021 day# part#
+  ```
+
+  put numbers in #
+  """
 
   def main(args) do
-    case args do
-      ["day1", "part1"] -> Aoc2021.Day1.part1()
-      ["day1", "part2"] -> Aoc2021.Day1.part2()
-      ["day2", "part1"] -> Aoc2021.Day2.part1()
-      ["day2", "part2"] -> Aoc2021.Day2.part2()
-      ["day3", "part1"] -> Aoc2021.Day3.part1()
-      ["day3", "part2"] -> Aoc2021.Day3.part2()
-      [] -> IO.puts("Oops")
-    end
+    Code.eval_string("Aoc2021.#{String.capitalize(Enum.at(args, 0))}.#{Enum.at(args, 1)}")
   end
 end
