@@ -13,11 +13,12 @@ defmodule Aoc2021.Day3 do
     |> Enum.map(&String.to_integer/1)
   end
 
-  defp array_to_integer_impl(arr) do
-    case arr do
-      [] -> 0
-      [x | xs] -> x + array_to_integer_impl(xs) * 2
-    end
+  defp array_to_integer_impl([]) do
+    0
+  end
+
+  defp array_to_integer_impl([x | xs]) do
+    x + array_to_integer_impl(xs) * 2
   end
 
   defp array_to_integer(arr) do

@@ -11,7 +11,7 @@ defmodule Aoc2021.Day4 do
       |> String.split(",")
       |> Enum.map(&String.trim/1)
       |> Enum.map(&String.to_integer/1)
-      |> Enum.map(fn x -> x + 1 end)
+      |> Enum.map(&(&1 + 1))
 
     bingo =
       inp
@@ -24,7 +24,7 @@ defmodule Aoc2021.Day4 do
           String.split(x)
           |> Enum.map(&String.trim/1)
           |> Enum.map(&String.to_integer/1)
-          |> Enum.map(fn a -> a + 1 end)
+          |> Enum.map(&(&1 + 1))
         end)
       end)
 
@@ -39,7 +39,7 @@ defmodule Aoc2021.Day4 do
 
   def row_bingo?(bingo) do
     bingo
-    |> Enum.reduce(false, fn x, a -> a || Enum.all?(x, fn y -> y == 0 end) end)
+    |> Enum.reduce(false, fn x, a -> a || Enum.all?(x, &(&1 == 0)) end)
   end
 
   def bingo?(bingo) do
@@ -55,7 +55,7 @@ defmodule Aoc2021.Day4 do
     bingo =
       bingo
       |> Enum.map(fn a ->
-        Enum.map(a, fn b -> Enum.map(b, fn c -> if c == x, do: 0, else: c end) end)
+        Enum.map(a, fn b -> Enum.map(b, &if(&1 == x, do: 0, else: &1)) end)
       end)
 
     bingo_ =
@@ -93,7 +93,7 @@ defmodule Aoc2021.Day4 do
     bingo =
       bingo
       |> Enum.map(fn a ->
-        Enum.map(a, fn b -> Enum.map(b, fn c -> if c == x, do: 0, else: c end) end)
+        Enum.map(a, fn b -> Enum.map(b, &if(&1 == x, do: 0, else: &1)) end)
       end)
 
     len = Enum.count(bingo)
