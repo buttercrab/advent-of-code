@@ -4,3 +4,4 @@ _build/
 *.iml
 aoc2021
 !lib/aoc2021
+.DS_Store
