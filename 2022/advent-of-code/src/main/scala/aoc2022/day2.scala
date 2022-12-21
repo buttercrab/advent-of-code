@@ -34,11 +34,15 @@ def invRps(left: String, result: String): Int =
   (l + r) % 3 + 1
 
 def day2(part: Int): Unit =
-  var s = 0
-  for line <- Source.fromFile("input/2.txt").getLines() do
-    val input = line.split(' ')
-    val left = input(0)
-    val right = input(1)
-    if part == 1 then s += (rps(left, right) + 1) * 3 + rightMap(right)
-    else s += (rightMap(right) - 1) * 3 + invRps(left, right)
+  val s = Source
+    .fromFile("input/2.txt")
+    .getLines()
+    .map(line =>
+      val input = line.split(' ')
+      val left = input(0)
+      val right = input(1)
+      if part == 1 then (rps(left, right) + 1) * 3 + rightMap(right)
+      else (rightMap(right) - 1) * 3 + invRps(left, right)
+    )
+    .sum
   println(s)
