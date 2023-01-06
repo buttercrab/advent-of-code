@@ -1,7 +1,4 @@
-.idea/
-.vscode/
-_build/
-*.iml
-aoc2021
-!2021/lib/aoc2021
+**/.idea/
+**/.vscode/
+
 .DS_Store

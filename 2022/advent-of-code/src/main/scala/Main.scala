@@ -7,3 +7,4 @@ import aoc2022.*
     case "2" | "day2" => day2(args(1).toInt)
     case "3" | "day3" => day3(args(1).toInt)
     case "4" | "day4" => day4(args(1).toInt)
+    case "5" | "day5" => day5(args(1).toInt)
